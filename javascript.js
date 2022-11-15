@@ -1,4 +1,7 @@
 let choices = ["rock", "paper", "scissors"];    
+const message = document.createElement('div');
+message.style.backgroundColor = "yellow"
+document.body.appendChild(message)
 
 function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)];
@@ -25,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener ('click', () => {
-        console.log(playRound(button.id, getComputerChoice()))});
+        message.textContent = playRound(button.id, getComputerChoice())});
 });
 
 // function game() {
