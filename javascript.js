@@ -10,7 +10,6 @@ final.style.backgroundColor = "green"
 document.body.appendChild(message)
 document.body.appendChild(scoreboard)
 document.body.appendChild(final)
-final.textContent= "0"
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -22,25 +21,30 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)];
 }
 
+function reset() {
+    player_score = 0;
+    computer_score = 0;
+}
+
 function playRound(playerSelection, computerSelection) {
     if (choices.indexOf(playerSelection.toLowerCase()) >= 0) {
         if (playerSelection.toLowerCase()==="rock" && computerSelection==="paper" || playerSelection.toLowerCase()==="paper" 
         && computerSelection==="scissors" || playerSelection.toLowerCase()==="scissors" && computerSelection==="rock") {
             scoreboard.textContent = `player score: ${player_score} | computer score: ${++computer_score}`;
+            final.textContent = "";
             if ((computer_score)==5) {
                 final.textContent = "Computer is the winner!";
-                player_score = 0;
-                computer_score = 0;
+                reset();
             };
             return(`You lose! ${computerSelection} beats ${playerSelection}`);
             
         } else if (playerSelection.toLowerCase()==="paper" && computerSelection==="rock" || playerSelection.toLowerCase()==="rock" 
         && computerSelection==="scissors" || playerSelection.toLowerCase()==="scissors" && computerSelection==="paper") {
             scoreboard.textContent = `player score: ${++player_score} | computer score: ${computer_score}`;
+            final.textContent = "";
             if (player_score==5) {
                 final.textContent = "You are the winner!";
-                player_score = 0;
-                computer_score = 0;
+                reset();
             };
             return(`You win! ${playerSelection} beats ${computerSelection}`);
         } else {
