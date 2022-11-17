@@ -3,7 +3,7 @@
 body {
     background-image: url("background.png");
     background-size: cover;
-    background-color: rgb(237, 237, 248);
+    background-color: rgb(222, 222, 246);
     border: 8px groove rgb(171, 193, 204);
     margin: 0px 0px;
     position:fixed;
@@ -46,6 +46,7 @@ body {
 }
 
 .restart {
+    cursor: pointer;
     font-weight: bolder;
     position: absolute;
     left:0;
@@ -70,15 +71,15 @@ body {
     flex-direction: row;
     justify-content: space-around;
     gap: 500px;
-    border-radius: 22px;
+    border-radius: 8px;
     margin-bottom: 550px;
     position:fixed;
     top:auto;
-    bottom:-400px;
+    bottom:-500px;
     left:0;
     right:0;
     font-weight: bold;
-    color: rgb(237, 249, 153);
+    color: rgb(229, 166, 103);
 }
 
 .player {
@@ -89,6 +90,7 @@ body {
     height: 40px;
     line-height: 40px;
     text-align: center;
+    justify-content: center;
 }
 
 .computer {
@@ -99,65 +101,50 @@ body {
     height: 40px;
     line-height: 40px;
     text-align: center;
-
-
+    justify-content: center;
 }
 
 .message {
-    animation: alertPulse 2s ease-out;
-    animation-iteration-count: infinite;
-    opacity: 1;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(230, 187, 145);
-    padding-top: 24px;
+    font-family: 'Helvetica Neue';
+    color: rgb(161, 178, 220);
     height: 44px;
     width: 300px;
+    line-height: 44px;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 14px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     margin: 12px auto;
     text-align: center;
-    background-color: rgba(50, 6, 87, 0.858);
+    background-color: rgb(60, 47, 72);
     border-radius: 16px;
     border: 1px solid rgb(0, 0, 0);
      
     text-shadow:
-          0 3px 20px red,
-          0 0 20px red,
-      0 0 10px orange,
-      4px -5px 6px rgb(25, 0, 255),
-      -4px -10px 10px rgb(72, 0, 255),
-      0 -10px 30px rgb(76, 0, 255);
-    animation: 7s Blazing infinite alternate linear;
+          0 3px 10px rgb(75, 72, 76),
+          0 0 10px rgb(92, 98, 93),
+      0 0 6px rgb(71, 69, 66),
+      4px -5px 6px rgba(174, 168, 237, 0.326),
+      -4px -6px 6px rgba(157, 151, 219, 0.469),
+      0 -6px 15px rgba(144, 138, 200, 0.469);
+    animation: 5s Blazing infinite alternate-reverse linear;
 }
 
 @keyframes Blazing {
-0%   { text-shadow: 0 3px 10px red, 0 0 10px red,
-    0 0 10px orange,
-    0 0 0 yellow,
+0%   { text-shadow: 0 3px 7px rgb(82, 79, 0), 0 0 10px rgb(114, 101, 167),
+    0 0 6px rgb(121, 211, 192),
+    0 0 0 rgb(0, 255, 247),
     0 0 5px yellow,
     -2px -5px 5px rgb(128, 0, 255),
-    4px -10px 10px rgb(102, 0, 255); }
-25%   { text-shadow: 0 3px 20px red, 0 0 30px red,
-    0 0 20px orange,
-    0 0 5px rgb(255, 162, 0),
-    -2px -5px 5px rgb(255, 128, 0),
-    3px -10px 10px rgb(255, 132, 0),
-    -4px -15px 20px rgb(255, 170, 0); }
-50%   { text-shadow: 0 3px 15px red, 0 0 15px red,
-    0 -5px 10px orange,
-    -2px -5px 5px rgb(132, 0, 255),
-    3px -10px 10px rgb(106, 0, 255),
-    -4px -15px 15px rgb(128, 0, 255),
-    2px -20px 20px rgba(255,255,0,0.5); }
-75%   { text-shadow: 0 3px 20px red, 0 0 20px red,
-    0 -5px 10px orange,
-    3px -5px 5px yellow,
-    -4px -10px 10px yellow,
-    2px -20px 15px rgba(255,255,0,0.5),
-    0px -25px 20px rgba(255,255,0,0)}
+    2px -5px 5px rgb(102, 0, 255); }
+
+50%   { text-shadow: 0 3px 8px rgb(95, 78, 13), 0 0 8px rgb(114, 101, 167),
+    0 -5px 6px rgb(107, 159, 158),
+    3px -5px 5px rgb(158, 157, 167),
+    -4px -5px 5px rgb(134, 168, 151),
+    2px -5px 7px rgba(255,255,0,0.5),
+    0px -5px 7px rgba(228, 228, 160, 0)}
 
 }
