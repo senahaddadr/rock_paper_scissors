@@ -3,36 +3,39 @@ let player_score = 0;
 let computer_score = 0;
 let gameOn = true;
 const message = document.createElement('div');
-const scoreboard = document.createElement('div')
-const final = document.createElement('div')
-const tryAgain = document.createElement('button')
-message.style.backgroundColor = "yellow"
-scoreboard.style.backgroundColor = "Red"
-final.style.backgroundColor = "green"
+const scoreboardP = document.createElement('div');
+const scoreboardC = document.createElement('div');
+const tryAgain = document.createElement('button');
+const result = document.createElement('div')
+message.classList.add('message')
+result.classList.add('scoreboard')
+scoreboardP.classList.add('player')
+scoreboardC.classList.add('computer')
+tryAgain.classList.add('restart')
 document.body.appendChild(message)
-document.body.appendChild(scoreboard)
-document.body.appendChild(final)
+document.body.appendChild(result)
+result.appendChild(scoreboardC)
+result.appendChild(scoreboardP)
 document.body.appendChild(tryAgain)
 tryAgain.textContent = "Try Again?";
 tryAgain.addEventListener('click', reset)
 tryAgain.style.display = "none";
 
 
-const buttons = document.querySelectorAll('.choice');
+const buttons = document.querySelectorAll('.button');
 buttons.forEach((button) => {
     button.addEventListener ('click', () => {
         message.textContent = playRound(button.id, getComputerChoice())});
 });
 
 function set() {
-    scoreboard.textContent = 'player score: 0 | computer score: 0';
-    final.textContent = "";
+    message.textContent = "";
+    scoreboardP.textContent = "";
+    scoreboardC.textContent = "";
     tryAgain.style.display = "none";
     buttons.forEach((button) => {
         button.style.display = "inline";
     })
-    message.style.display = "block"
-    scoreboard.style.display = "block"
 }
 
 function getComputerChoice() {
@@ -47,8 +50,6 @@ function reset() {
 }
 
 function stopGame() {
-    message.textContent = "";
-    scoreboard.textContent = "";
     buttons.forEach((button) => {
         button.style.display = "none";
     })
@@ -61,28 +62,29 @@ function playRound(playerSelection, computerSelection) {
         set()
         if (playerSelection.toLowerCase()==="rock" && computerSelection==="paper" || playerSelection.toLowerCase()==="paper" 
         && computerSelection==="scissors" || playerSelection.toLowerCase()==="scissors" && computerSelection==="rock") {
-            scoreboard.textContent = `player score: ${player_score} | computer score: ${++computer_score}`;
-            tryAgain.style.display = "none";
+            scoreboardP.textContent = `Player: ${player_score}` 
+            scoreboardC.textContent = `Computer: ${++computer_score}`;
             if ((computer_score)==5) {
                 stopGame();
-                final.textContent = "Computer is the winner!";
-                break;
-            };
-            return(`You lose! ${computerSelection} beats ${playerSelection}`);
+                return("I guess you are a loser...");
+            } else {
+                return(`Computer won!  ${computerSelection} beats ${playerSelection}.`);
+            }
             
         } else if (playerSelection.toLowerCase()==="paper" && computerSelection==="rock" || playerSelection.toLowerCase()==="rock" 
         && computerSelection==="scissors" || playerSelection.toLowerCase()==="scissors" && computerSelection==="paper") {
-            scoreboard.textContent = `player score: ${++player_score} | computer score: ${computer_score}`;
-            tryAgain.style.display = "none";
+            scoreboardP.textContent = `Player: ${++player_score}` 
+            scoreboardC.textContent = `Computer: ${computer_score}`;           
             if (player_score==5) {
                 stopGame();
-                final.textContent = "You are the winner!";
-                break;
-            };
-            return(`You win! ${playerSelection} beats ${computerSelection}`);
+                return("I am proud of you!");
+            } else {
+                return(`You won! ${playerSelection} beats ${computerSelection}.`);
+            }
         } else {
-            scoreboard.textContent = `player score: ${player_score} | computer score: ${computer_score}`;
+            scoreboardP.textContent = `Player: ${player_score}` 
+            scoreboardC.textContent = `Computer: ${computer_score}`;
             return ("It's a tie!");
         }
     }
-} 
+}
