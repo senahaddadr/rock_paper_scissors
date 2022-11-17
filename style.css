@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+
 body {
     background-image: url("background.png");
     background-size: cover;
-    background-color: rgb(229, 230, 253);
+    background-color: rgb(237, 237, 248);
+    border: 8px groove rgb(171, 193, 204);
+    margin: 0px 0px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 .buttons {
@@ -19,13 +28,15 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 6px;
     cursor: pointer;
     border-radius: 64px;
-    width: 100px;
+    width: 120px;
     height: 68px;
-    background-color: #5a5ba89f;
-    color: rgba(255, 255, 255, 0.851);
+    background-color: #4143a6d1;
+    color: rgb(229, 166, 103);
+    border: 3px solid black;
   }
 
 .button:hover {
@@ -54,15 +65,99 @@ body {
     box-shadow: 0 8px 12px 0 rgba(0,0,0,0.24), 0 12px 24px 0 rgba(0,0,0,0.19);
 }
 
-.message {
-    padding-top: 8px;
-    height: 32px;
-    font-style: italic;
+.scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 500px;
+    border-radius: 22px;
+    margin-bottom: 550px;
+    position:fixed;
+    top:auto;
+    bottom:-400px;
+    left:0;
+    right:0;
     font-weight: bold;
+    color: rgb(237, 249, 153);
+}
+
+.player {
+    display: flex;
+    border-radius: 22px;
+    background-color: rgba(50, 6, 87, 0.858);
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.computer {
+    display: flex;
+    border-radius: 22px;
+    background-color: rgba(50, 6, 87, 0.858);
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+
+}
+
+.message {
+    animation: alertPulse 2s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(230, 187, 145);
+    padding-top: 24px;
+    height: 44px;
+    width: 300px;
+    font-weight: bolder;
+    font-size: 18px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    margin: 12px auto;
     text-align: center;
-    background-color: royalblue;
+    background-color: rgba(50, 6, 87, 0.858);
+    border-radius: 16px;
+    border: 1px solid rgb(0, 0, 0);
+     
+    text-shadow:
+          0 3px 20px red,
+          0 0 20px red,
+      0 0 10px orange,
+      4px -5px 6px rgb(25, 0, 255),
+      -4px -10px 10px rgb(72, 0, 255),
+      0 -10px 30px rgb(76, 0, 255);
+    animation: 7s Blazing infinite alternate linear;
+}
+
+@keyframes Blazing {
+0%   { text-shadow: 0 3px 10px red, 0 0 10px red,
+    0 0 10px orange,
+    0 0 0 yellow,
+    0 0 5px yellow,
+    -2px -5px 5px rgb(128, 0, 255),
+    4px -10px 10px rgb(102, 0, 255); }
+25%   { text-shadow: 0 3px 20px red, 0 0 30px red,
+    0 0 20px orange,
+    0 0 5px rgb(255, 162, 0),
+    -2px -5px 5px rgb(255, 128, 0),
+    3px -10px 10px rgb(255, 132, 0),
+    -4px -15px 20px rgb(255, 170, 0); }
+50%   { text-shadow: 0 3px 15px red, 0 0 15px red,
+    0 -5px 10px orange,
+    -2px -5px 5px rgb(132, 0, 255),
+    3px -10px 10px rgb(106, 0, 255),
+    -4px -15px 15px rgb(128, 0, 255),
+    2px -20px 20px rgba(255,255,0,0.5); }
+75%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 -5px 10px orange,
+    3px -5px 5px yellow,
+    -4px -10px 10px yellow,
+    2px -20px 15px rgba(255,255,0,0.5),
+    0px -25px 20px rgba(255,255,0,0)}
+
 }
